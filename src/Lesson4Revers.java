@@ -5,5 +5,7 @@ public class Lesson4Revers {
         String revers = new StringBuffer(notRevers).reverse().toString();
         System.out.println(notRevers);
         System.out.println(revers);
+        System.out.println(revers);
     }
+
 }
