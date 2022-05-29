@@ -10,7 +10,8 @@ import java.util.Scanner;
     public static double hoursWorkedAndBaseBid (int houseWorked, double baseRate) {
         double salary;
         if (houseWorked > BASE_HOURS) {
-            salary = houseWorked * baseRate * 1.5 - BASE_HOURS;
+            //salary = houseWorked * baseRate * 1.5 - BASE_HOURS;
+            salary = (houseWorked - BASE_HOURS) * baseRate * 1.5 + BASE_HOURS * baseRate;
         } else {
             salary = houseWorked * baseRate;
         }
@@ -22,14 +23,11 @@ import java.util.Scanner;
         double coefficient = 0;
         if (coefficientOnBaseHours < 2) {
             coefficient = (double) coefficientOnBaseHours * 1;
-        }
-        else if (coefficientOnBaseHours >= 2 && coefficientOnBaseHours < 4){
+        } else if (coefficientOnBaseHours < 4){
             coefficient = (double) coefficientOnBaseHours * 1.2;
-        }
-        else if (coefficientOnBaseHours >= 4 && coefficientOnBaseHours < 7){
+        } else if (coefficientOnBaseHours < 7){
             coefficient = (double) coefficientOnBaseHours * 1.3;
-        }
-        else if (coefficientOnBaseHours > 6){
+        } else {
             coefficient = (double) coefficientOnBaseHours * 1.4;
         }
         System.out.println("Ваш коэф составил: " + coefficient);
@@ -39,10 +37,9 @@ import java.util.Scanner;
         public static double numberOfSales (int enterNumberOfSales) {
             double bonus = 0;
             if (enterNumberOfSales > 20) {
-                bonus = (double) enterNumberOfSales + BONUS;
-            }
-            else if (enterNumberOfSales < 10) {
-                bonus = (double) enterNumberOfSales - 150;
+                return BONUS;
+            } else if (enterNumberOfSales < 10) {
+                return -150;
             }
             System.out.println("Ваш доход составил: " + bonus);
             return bonus;
