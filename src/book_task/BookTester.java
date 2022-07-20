@@ -24,13 +24,13 @@ public class BookTester {
         }
 
         System.out.println("В магазине есть след книги с Мягким переплетом ");
-        for (int i = 0; i < 1; i++) {
-            System.out.println(booksWithSoftCover);
+        for (Book book: booksWithSoftCover) {
+            System.out.println(book.getTitle());
         }
 
         System.out.println("В магазине есть след книги с Твердым переплетом ");
-        for (int i = 0; i < 1; i++) {
-            System.out.println(booksWithHardCover);
+        for (Book book: booksWithHardCover) {
+            System.out.println(book.getTitle());
         }
     }
 }
